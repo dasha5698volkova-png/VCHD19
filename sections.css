@@ -1,0 +1,220 @@
+/* Стили для страницы "Участки" */
+.sections-page {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.sections-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sections-page-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Список ПТО */
+.pto-list {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.pto-list h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #003063; /* Темно-синий, как у РЖД */
+}
+
+.pto-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    }
+
+.pto-list li {
+    margin: 10px 0;
+}
+
+.pto-list a {
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+    padding: 12px 25px;
+    background-color: #fff;
+    border: 2px solid #003063;
+    color: #003063;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pto-list a:hover {
+    background-color: #003063;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);  color: #e44d26; /* Оранжевый РЖД */
+}
+
+/* Детали ПТО */
+.pto-details {
+    max-width: 1100px;
+    margin: 0 auto 50px;
+    padding: 30px;
+    background-color: #fff;
+    border-left: 8px solid #e44d26; /* Оранжевый акцент РЖД */
+    scroll-margin-top: 100px; /* Отступ сверху при скролле, чтобы шапка не перекрывала заголовок */}
+
+.pto-details h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pto-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.pto-info {
+    flex: 2;
+}
+
+.pto-info h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.pto-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.pto-info ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.pto-image img {
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
+    width: 500px;
+height: 300px;
+border-radius: 5px; /* Слегка закруглим края фото */
+    border: 1px solid #ddd;
+object-fit: cover;
+margin-bottom: 15px;
+}
+
+.pto-image img:hover {
+transform: scale(1.03);
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .pto-content {
+        flex-direction: column; /* Перестраиваем в колонку на мобильных */
+        align-items: stretch; /*  Растягиваем элементы по ширине */
+    }
+
+    .pto-image {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .pto-image img {
+        max-width: 80%; /*  Уменьшаем ширину изображения на мобильных */
+    }
+}
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+.sections-page {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.back-to-top {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #888;
+    text-decoration: underline;
+}
+
+.ptor-highlight {
+    border-left: 8px solid #003063 !important; /* Синий акцент вместо оранжевого */
+    background-color: #f0f4f8; /* Чуть более холодный оттенок фона */
+}
+
+.ptor-highlight h2 {
+    color: #e21a1a; /* Красный заголовок для привлечения внимания к ремонтному участку */
+}
+
+/* Стилизация иконок или маркеров списка в ПТОР */
+.ptor-highlight ul li::marker {
+    color: #003063;
+}/* Стили модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 2000; /* Выше всех элементов */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Черный фон с прозрачностью */
+    overflow: auto;
+}
+
+/* Картинка внутри окна */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1000px;
+    animation: zoom 0.3s; /* Анимация появления */
+}
+
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Кнопка закрытия */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Адаптивность для iPhone 11 */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+}

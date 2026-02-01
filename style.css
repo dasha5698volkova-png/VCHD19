@@ -1,0 +1,1067 @@
+/* Общие стили */
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f0f0f0;
+color: #333;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+h2 {
+font-size: 2em;
+margin-bottom: 20px;  
+color: #003063;
+
+}
+
+a {
+text-decoration: none;
+  color: #007bff; /* Синий РЖД */
+}
+/* Глобальная настройка для предотвращения горизонтального скролла */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили специально для смартфонов (iPhone 11 и подобные) */
+@media (max-width: 480px) {
+    
+    /* 1. Навигация (убираем перекрытие страницы) */
+    .navbar {
+        padding: 10px 15px;
+        position: sticky; /* Либо static, чтобы не плавало поверх текста */
+        top: 0;
+        z-index: 1000;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu {
+        display: none; /* В идеале тут нужен бургер-меню, но пока просто упростим */
+        /* Если меню должно быть видно, то: */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .hero-section::after { /* Затемнение фото, чтобы текст читался */
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+
+
+    /* 3. Шрифты (уменьшаем для мобильного) */
+    h1 { font-size: 1.6rem !important; line-height: 1.2; color: #fff; }
+    h2 { font-size: 1.4rem !important; margin-bottom: 15px; }
+    h3 { font-size: 1.2rem !important; }
+    p, li { font-size: 14px !important; line-height: 1.5; }
+
+    /* 4. Контейнеры (убираем жесткие отступы) */
+    .container {
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 5. Футер (центрируем всё) */
+    .footer-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .footer-section {
+        margin-bottom: 25px;
+        padding: 0 !important;
+    }
+
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%); /* Центрируем красную линию под заголовком */
+    }
+
+    /* Ссылки и контакты в футере */
+    .footer-links ul, .footer-contacts p {
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+/* Контейнер поиска */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items:center;
+    margin-left: 5px;
+}
+
+#searchInput {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+    transition: width 0.3s;
+}
+
+#searchInput:focus {
+    width: 250px;
+    border-color: #e21a1a; /* Корпоративный красный акцент */
+}
+
+#searchBtn {
+    padding: 8px 15px;
+    background-color: #e21a1a;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#searchBtn:hover {
+    background-color: #b31515;
+}
+
+/* Выпадающий список результатов */
+.search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none; /* Скрыт по умолчанию */
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-item:last-child { border-bottom: none; }
+
+.search-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.search-item a:hover { color: #e21a1a; }
+
+.search-item small {
+    color: #888;
+    display: block;
+    margin-top: 3px;}
+
+/*  Шапка */
+header {
+background-color: #f2f2f2;
+padding: 15px 0;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 30px;
+}
+
+.logo {
+display: flex;
+align-items: center;
+color: #003063; /* Темно-синий РЖД */
+font-weight: bold;
+font-size: 1.2em;
+}
+
+.logo img {
+width: 70px;
+margin-right: 10px;
+}
+
+nav ul {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+}
+
+nav li {
+margin-left: 20px;
+}
+
+nav a {
+color: #003063;
+font-weight: bold;
+transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e44d26; /* Оранжевый РЖД */
+}
+
+/* Hero секция */
+.hero {
+position: relative;
+height: 700px;
+overflow: hidden;
+}
+
+.hero-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: brightness(0.7); /* Затемнение изображения */
+}
+
+.hero-content {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+color: white;
+width: 80%;
+}
+
+.hero-content h1 {
+font-size: 2.5em;
+margin-bottom: 20px;
+}
+
+.hero-content p {
+font-size: 1.2em;
+}
+
+/* Секция быстрых ссылок */
+.quick-links {
+background-color: #fff;
+padding: 30px 0;
+text-align: center;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links-container {
+display: flex;
+justify-content: space-around;
+align-items: center;
+max-width: 900px;
+margin: 0 auto;
+}
+
+.quick-links a {
+display: flex;
+flex-direction: column;
+align-items: center;
+color: #555;
+transition: color 0.3s;
+}
+
+.quick-links a:hover {
+color: #e44d26;
+}
+
+.quick-links img {
+width: 80px;
+margin-bottom: 10px;
+}
+
+/* Контейнер для текста и фото */
+.about-container {
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+    gap: 40px;           /* Расстояние между текстом и фото */
+    text-align: left;    /* Выравнивание текста по левому краю */
+    padding: 60px 20px;
+}
+
+/* Блок с текстом */
+.about-text {
+    flex: 1;             /* Занимает доступное пространство */
+}
+
+.about-text h2 {
+    margin-top: 0;
+    color: #003063;      /* Фирменный синий */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Блок с изображением */
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Секция с картой (отдельно) */
+.map-section {
+    padding: 40px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    .hero-content {
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+color: white;
+width: 70%;
+}
+    .about-container {
+        flex-direction: column; /* Текст и фото встают друг под друга */
+        text-align: center;
+    }
+    
+    .about-image {
+        order: -1; /* Фото будет ПЕРЕД текстом на мобильных (по желанию) */
+    }
+}
+
+/* Секция статистики */
+.stats {
+    background-color: #003063; /* Темно-синий фон РЖД */
+    padding: 50px 0;
+    color: white;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Чтобы на мобильных карточки переносились */
+    gap: 20px;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px); /* Легкий эффект всплытия */
+}
+
+.stat-suffix {
+    font-size: 0.8em; /* Чуть меньше основной цифры */
+    color: #e44d26;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #e44d26; /* Акцентный оранжево-красный */
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.stat-desc {
+    font-size: 1.1em;
+    line-height: 1.3;
+    opacity: 0.9;
+}
+
+/* Адаптивность для статистики */
+@media (max-width: 768px) {
+    .stats-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: 2fr; /* 1 колонка на телефонах */
+    }
+} 
+
+/* Секция новостей */
+.news {
+padding: 40px 20px;
+background-color: #fff;
+}
+
+.news h2 {
+font-size: 2em;
+margin-bottom: 20px;
+text-align: center;
+}
+
+.news article {
+border-bottom: 1px solid #ddd;
+padding-bottom: 20px;
+margin-bottom: 20px;
+}
+
+.news article:last-child {
+border-bottom: none;
+}
+
+.news h3 {
+font-size: 1.5em;
+margin-bottom: 10px;
+}
+
+.news p {
+font-size: 1em;
+line-height: 1.4;
+}
+
+
+/* --- Дополнения к вашему коду --- */
+
+/* Плавная прокрутка к якорям */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Улучшение Hero-секции для разных экранов */
+.hero {
+    height: 90vh; /* 80% от высоты экрана, чтобы контент снизу был виден сразу */
+    min-height: 400px;
+}
+
+/* Эффект при наведении на карточки быстрых ссылок */
+.quick-links a {
+    padding: 15px;
+    border-radius: 10px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.quick-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: #e44d26;
+}
+
+/* Оформление формы обратной связи */
+.feedback-form input, 
+.feedback-form textarea {
+    border-radius: 5px;
+    border: 1px solid #666;
+    font-family: inherit;
+}
+
+.feedback-form button {
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Адаптивность (Мобильная версия) --- */
+
+@media (max-width: 480px) {
+    /* Перестраиваем шапку */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav li {
+        margin: 0 10px;
+    }
+
+    /* Сетка ссылок 2х2 на мобильных */
+    .quick-links-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    /* Футер в одну колонку */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+}
+
+/* Страница "Руководство" */
+.management-page {
+text-align: center;
+background-color: #f2f2f2;
+padding: 10px 0; /* Немного уменьшил padding, чтобы меню было компактнее */
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+/* Свойства для закрепления: */
+position: sticky;
+top: 0;
+}
+
+.management-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.management-card {
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+padding: 20px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.management-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-bottom: 3px solid #e44d26; /* Оранжевый акцент при наведении */
+}
+.management-card img {
+width: 150px;
+height: 200px;
+border-radius: 5px; /* Слегка закруглим края фото */
+    border: 1px solid #ddd;
+object-fit: cover;
+margin-bottom: 15px;
+}
+
+.management-card h3 {
+font-size: 1.3em;
+margin-bottom: 5px;
+}
+
+.management-card p {
+font-size: 1em;
+color: #555;
+}
+.reception-schedule {
+    margin-top: 60px;
+    padding-bottom: 40px;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.schedule-table th {
+    background-color: #003063;
+    color: white;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/* Страница "Контакты" */
+.contacts-page {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contacts-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contacts-page .general-info {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Секция "Контакты отделов" */
+.department-contacts h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.main-contact-banner {
+    background: #f8f9fa;
+    border-left: 5px solid #e21a1a; /* Красный РЖД */
+    padding: 20px;
+    margin-bottom: 40px;
+    display: inline-block;
+    text-align: left;
+    border-radius: 0 8px 8px 0;
+}
+
+.main-contact-banner p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.department-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left; /* Выравниваем текст влево */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 3px solid #e44d26; /* Синий РЖД */
+}
+
+.department-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #003063; /* Темно-синий, как у РЖД */
+}
+
+.department-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.department-card a {
+    color: #007bff; /* Синий РЖД */
+}
+
+.department-card a:hover {
+    color: #e44d26; /* Оранжевый РЖД */
+}
+
+.department-card .manager {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.card-footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+.card-footer p {
+    margin: 5px 0;
+}
+
+/* Секция "Как нас найти" */
+.map {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.map h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.map iframe {
+    width: 100%;
+    max-width: 800px; /* Ограничиваем ширину карты */
+    height: 400px;
+    border: 0;
+}
+
+/* Стили для страницы "История" */
+.history-page {
+    padding: 40px 20px;
+}
+
+.history-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.history-block {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.history-block h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #003063; /* Темно-синий, как у РЖД */
+}
+
+.history-block p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-gallery img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Стили для полноэкранного просмотра */
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: none; /* Изначально скрыт */
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+.header-container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+nav ul {
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+nav li {
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+.hero {
+    height: 400px;
+}
+
+.hero-content h1 {
+    font-size: 2em;
+}
+
+.quick-links-container {
+    flex-direction: column;
+}
+
+.quick-links a {
+    margin-bottom: 20px;
+}
+
+.footer-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info, .feedback-form, .footer-logo {
+    margin-bottom: 30px;
+    text-align: center;
+}
+/*контакты*/
+.departments-grid {
+        grid-template-columns: 1fr; /* В одну колонку на мобильных */
+    }
+
+    .map iframe {
+        height: 300px; /* Уменьшаем высоту карты на мобильных */
+    }
+}
+
+/* Базовый стиль футера */
+.main-footer {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* На ПК блоки распределены по ширине */
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 30px;
+}
+
+.footer-section h4 {
+    color: #e21a1a; /* Фирменный красный РЖД */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e21a1a;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 12px;
+    color: #888;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ (Media Query) */
+@media (max-width: 480px) {
+    .footer-container {
+        flex-direction: column; /* Блоки встают друг под друга */
+        align-items: center;    /* Центрируем блоки */
+        text-align: center;     /* Центрируем текст внутри блоков */
+    }
+
+    .footer-section {
+        margin-bottom: 20px;    /* Расстояние между блоками в колонке */
+        width: 100%;
+    }
+
+    .footer-links ul {
+        display: inline-block;  /* Чтобы список тоже центрировался */
+        text-align: center;
+    }
+
+    .footer-section h4 {
+        margin-bottom: 10px;
+    }
+}
+
+/* Подвал */
+footer {
+background-color: #333;
+color: white;
+padding: 30px 0;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-around;
+align-items: flex-start;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.contact-info h3, .feedback-form h3 {
+font-size: 1.4em;
+margin-bottom: 15px;
+}
+
+.contact-info p {
+margin-bottom: 10px;
+}
+
+.feedback-form input, .feedback-form textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #555;
+background-color: #444;
+color: white;
+}
+
+.feedback-form button {
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.feedback-form button:hover {
+background-color: #0056b3;
+}
+
+.footer-logo {
+text-align: right;
+}
+.footer-logo img {
+    width: 100px;
+}
+.copyright {
+text-align: center;
+background-color: #222;
+padding: 10px;
+} 
+
+/* Компактный футер для внутренних страниц */
+.footer-compact {
+    background-color: #333;
+    color: white;
+    padding: 40px 0 0;
+    margin-top: 60px; /* Отступ от контента страницы */
+}
+
+.footer-compact .footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 30px;
+    gap: 30px;
+}
+
+/* Стилизация колонок */
+.footer-brand, .footer-nav, .footer-contacts-simple {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo-small {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.footer-nav h4, .footer-contacts-simple h4 {
+    color: #e21a1a; /* Красный акцент РЖД */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    margin-bottom: 8px;
+}
+
+.footer-nav a, .footer-contacts-simple a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover, .footer-contacts-simple a:hover {
+    color: #e21a1a;
+}
+
+/* Копирайт в самом низу */
+.copyright-simple {
+    background-color: #222;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.8em;
+    color: #777;
+    border-top: 1px solid #444;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 480px) {
+    .footer-compact .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-brand, .footer-nav, .footer-contacts-simple {
+        align-items: center;
+    }
+}
