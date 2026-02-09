@@ -184,6 +184,10 @@ position: fixed;
     z-index: 1000;
 }
 
+@media (max-width: 480px) {
+header{
+    position: sticky;
+}}
 .header-container {
 display: flex;
 justify-content: space-between;
@@ -1066,3 +1070,4 @@ padding: 10px;
     }
 
 }
+
