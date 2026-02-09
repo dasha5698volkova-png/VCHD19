@@ -179,7 +179,7 @@ header {
 background-color: #f2f2f2;
 padding: 15px 0;
 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-position: sticky;
+position: fixed;
     top: 0;
     z-index: 1000;
 }
@@ -1064,4 +1064,5 @@ padding: 10px;
     .footer-brand, .footer-nav, .footer-contacts-simple {
         align-items: center;
     }
+
 }
